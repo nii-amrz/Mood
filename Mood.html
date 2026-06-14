@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Untuk Zi'iz</title>
+
+<style>
+body{
+  font-family: Arial;
+  background: linear-gradient(135deg,#ffd6e8,#d6ecff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.card{
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+button{
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  background: #ff8fab;
+  color: white;
+}
+
+button:hover{
+  background: #ff6f91;
+}
+
+#halamanPesan{
+  display: none;
+}
+
+#isiPesan{
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.judulMood{
+  font-size: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div id="halamanMood">
+    <h2>Hai Zi'iz 👋</h2>
+    <p>Gimana hari ini?</p>
+
+    <button onclick="bukaHalaman('capek')">🩶 Lagi capek</button>
+    <button onclick="bukaHalaman('overthinking')">💭 Lagi overthinking</button>
+    <button onclick="bukaHalaman('sedih')">😔 Lagi sedih</button>
+    <button onclick="bukaHalaman('kesel')">😡 Lagi kesel</button>
+    <button onclick="bukaHalaman('seneng')">😊 Lagi seneng</button>
+  </div>
+
+  <div id="halamanPesan">
+    <h2 id="judulPesan" class="judulMood"></h2>
+    <div id="isiPesan"></div>
+    <button onclick="kembali()">Balik pilih mood</button>
+  </div>
+
+</div>
+
+<script>
+function bukaHalaman(mood){
+  let judul = "";
+  let pesan = "";
+
+  if(mood == "capek"){
+    judul = "Buat kamu yang lagi capek 🩶";
+    pesan = "Aku tau hari ini mungkin berat banget buat kamu.<br><br>Jadi gak apa-apa kalau kamu gak sekuat biasanya. Gak apa-apa kalau kamu pengen diem dulu, istirahat dulu, atau gak mau banyak ngomong dulu.<br><br>Kamu gak harus selalu kuat setiap hari. Pelan-pelan aja ya, Zi'iz. Aku tetep bangga sama kamu 🤍";
+  }
+
+  if(mood == "overthinking"){
+    judul = "Buat isi kepala yang lagi rame 💭";
+    pesan = "Kalau pikiran kamu lagi berisik, coba tarik napas dulu pelan-pelan.<br><br>Gak semua hal harus kamu jawab hari ini. Gak semua hal harus kamu pikirin sampai capek sendiri.<br><br>Kamu boleh pelan-pelan. Kamu boleh istirahat dari pikiran kamu sendiri sebentar. Semoga malam ini kepala kamu lebih tenang ya 🤍";
+  }
+
+  if(mood == "sedih"){
+    judul = "Buat kamu yang lagi sedih 😔";
+    pesan = "Aku gak tau persis apa yang lagi kamu rasain, tapi aku harap kamu gak ngerasa sendirian banget.<br><br>Kalau hari ini rasanya berat, gapapa. Nangis juga gapapa. Yang penting jangan ngerasa kamu harus nahan semuanya sendiri.<br><br>Kamu berharga, Zi'iz. Bahkan di hari kamu ngerasa gak baik-baik aja sekalipun 🤍";
+  }
+
+  if(mood == "kesel"){
+    judul = "Buat kamu yang lagi kesel 😡";
+    pesan = "Kesel dulu gapapa. Kadang emang ada hari yang orang-orangnya ngeselin banget 😭<br><br>Tapi jangan sampe kesel kamu bikin kamu lupa makan, lupa minum, atau malah nyalahin diri sendiri.<br><br>Semoga yang bikin kamu kesel cepet minggir dari hidup kamu hari ini wkwk 🤍";
+  }
+
+  if(mood == "seneng"){
+    judul = "Buat kamu yang lagi seneng 😊";
+    pesan = "NAHH GINI DONGGG 😭<br><br>Aku ikut seneng kalau hari kamu lagi baik. Semoga senengnya gak cuma sebentar, semoga ada banyak hal kecil yang bikin kamu senyum hari ini.<br><br>Dan semoga kamu inget, kamu pantes dapet hari-hari baik kayak gini 🤍";
+  }
+
+  document.getElementById("judulPesan").innerHTML = judul;
+  document.getElementById("isiPesan").innerHTML = pesan;
+
+  document.getElementById("halamanMood").style.display = "none";
+  document.getElementById("halamanPesan").style.display = "block";
+}
+
+function kembali(){
+  document.getElementById("halamanPesan").style.display = "none";
+  document.getElementById("halamanMood").style.display = "block";
+}
+</script>
+
+</body>
+</html>
